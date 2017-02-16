@@ -11,8 +11,8 @@ public class PersonForm {
     private String name;
 
     @NotNull
-    @Min(18)
-    private Integer age;
+    @Size(min=4)
+    private String password;
 
     public String getName() {
         return this.name;
@@ -22,15 +22,15 @@ public class PersonForm {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String toString() {
-        return "Person(Name: " + this.name + ", Age: " + this.age + ")";
+        return "Person(Name: " + this.name + ", Password: " + this.password + ")";
     }
 }
