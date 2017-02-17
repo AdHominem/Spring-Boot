@@ -11,7 +11,7 @@ public class PersonForm {
     private String name;
 
     @NotNull
-    @Size(min=4)
+    @Size(min=4, max=30)
     private String password;
 
     public String getName() {

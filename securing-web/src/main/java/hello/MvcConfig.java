@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -21,6 +22,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/results").setViewName("results");
         registry.addViewController("/register").setViewName("register");
+        registry.addViewController("/secret").setViewName("secret");
     }
 
     @GetMapping("/register")
@@ -36,5 +38,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         }
 
         return "redirect:/results";
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+                .addResourceHandler("/resources/**")
+                .addResourceLocations("(/resources/");
     }
 }
